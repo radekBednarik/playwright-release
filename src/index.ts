@@ -1,6 +1,6 @@
-import { getMarkdown } from "./api";
-import { parseMarkdown } from "./parser";
-import cli from "./cli/cli";
+import { getMarkdown } from "./api.js";
+import { parseMarkdown } from "./parser.js";
+import cli from "./cli/cli.jsx";
 
 (async () => {
   const textMarkdown = await getMarkdown();
