@@ -17,6 +17,10 @@
     "remark-parse": "^11.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
     "@eslint/js": "^9.29.0",
     "eslint": "^9.29.0",
     "prettier": "^3.5.3",
