@@ -1,6 +1,5 @@
 import { getMarkdown } from "./api.js";
 import { parseMarkdown } from "./parser.js";
-import cli from "./cli/cli.jsx";
 
 (async () => {
   const textMarkdown = await getMarkdown();
@@ -15,5 +14,5 @@ import cli from "./cli/cli.jsx";
     return null;
   }
 
-  cli({ mdContent: parsed });
+  console.log(parsed);
 })();
