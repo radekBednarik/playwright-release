@@ -1,10 +1,9 @@
 import React from "react";
-import { render, Text } from "ink";
+import MainComponent from "./main.component.jsx";
+import { render } from "ink";
 
-const cli = () => {
-  const Demo = () => <Text>Hello World</Text>;
-
-  render(<Demo />);
+const cli = ({ mdContent }: { mdContent: string }) => {
+  render(<MainComponent mdContent={mdContent} />);
 };
 
 export default cli;

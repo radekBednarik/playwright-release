@@ -10,8 +10,10 @@ import cli from "./cli/cli.jsx";
   }
 
   const parsed = await parseMarkdown(textMarkdown);
-  // DEBUG
-  console.log(parsed);
 
-  cli();
+  if (!parsed) {
+    return null;
+  }
+
+  cli({ mdContent: parsed });
 })();
