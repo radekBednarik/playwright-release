@@ -1,16 +1,13 @@
-import { remark } from "remark";
-import remarkParse from "remark-parse";
+import { getMarkdown } from "./api";
+import { parseMarkdown } from "./parser";
 
 (async () => {
-  const md = await fetch(
-    "https://raw.githubusercontent.com/microsoft/playwright/refs/heads/main/docs/src/release-notes-js.md",
-  );
+  const textMarkdown = await getMarkdown();
 
-  const parsed = (
-    await remark()
-      .use(remarkParse)
-      .process(await md.text())
-  ).toString();
+  if (!textMarkdown) {
+    return null;
+  }
 
+  const parsed = await parseMarkdown(textMarkdown);
   console.log(parsed);
 })();
