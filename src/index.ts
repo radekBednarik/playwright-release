@@ -1,5 +1,6 @@
 import { getMarkdown } from "./api.js";
 import { parseMarkdown, parseMarkdownToJson } from "./parser.js";
+import { client } from "./client.js";
 
 (async () => {
   const textMarkdown = await getMarkdown();
@@ -16,5 +17,9 @@ import { parseMarkdown, parseMarkdownToJson } from "./parser.js";
 
   const parsedJson = parseMarkdownToJson(parsed);
 
-  console.log(parsedJson);
+  if (!parsedJson) {
+    return null;
+  }
+
+  client(parsedJson);
 })();

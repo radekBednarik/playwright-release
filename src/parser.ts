@@ -31,7 +31,7 @@ export function parseMarkdownToJson(input: string) {
       }
 
       if (!row.startsWith("## ") && isInSection) {
-        rowItem.info += row;
+        rowItem.info += `${row}\n`;
 
         continue;
       }

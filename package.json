@@ -16,11 +16,14 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
     "remark": "^15.0.1",
     "remark-parse": "^11.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/blessed": "^0.1.25",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "eslint": "^9.29.0",
