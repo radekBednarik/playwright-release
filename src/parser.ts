@@ -21,10 +21,28 @@ export function parseMarkdownToJson(input: string) {
     const rows = input.split("\n");
 
     let isInSection = false;
+    let isInLiteYouTube = false;
 
     for (const row of rows) {
+      // remove YouTube Lite embed code
+      if (row.startsWith("<LiteYouTube")) {
+        isInLiteYouTube = true;
+        continue;
+      }
+
+      if (isInLiteYouTube && !row.startsWith("/>")) {
+        continue;
+      }
+
+      if (isInLiteYouTube && row.startsWith("/>")) {
+        isInLiteYouTube = false;
+        continue;
+      }
+
+      // fence the version info into section
       if (row.startsWith("## ") && !isInSection) {
         rowItem.heading = row.replace("## ", "").trim();
+        rowItem.info = row;
         isInSection = true;
 
         continue;
@@ -39,7 +57,7 @@ export function parseMarkdownToJson(input: string) {
       if (row.startsWith("## ") && isInSection) {
         obj.push(Object.assign({}, rowItem));
         rowItem.heading = row.replace("## ", "").trim();
-        rowItem.info = "";
+        rowItem.info = row;
       }
     }
   } catch (error) {

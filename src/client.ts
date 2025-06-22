@@ -54,7 +54,6 @@ export function client(data: { heading: string; info: string }[]) {
   });
   infoBox.key(["j", "down"], () => {
     infoBox.scroll(1);
-    screen.render();
   });
   infoBox.key(["k", "up"], () => {
     infoBox.scroll(-1);
@@ -62,6 +61,7 @@ export function client(data: { heading: string; info: string }[]) {
 
   screen.key(["C-c"], () => process.exit(0));
   screen.key(["q", "Q"], () => process.exit(0));
+  screen.key(["r", "R"], () => screen.render());
 
   screen.render();
 
