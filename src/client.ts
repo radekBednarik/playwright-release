@@ -38,7 +38,7 @@ export function client(data: { heading: string; info: string }[]) {
 
   const infoBox = grid.set(0, 1, 1, 1, blessedContrib.markdown, {
     label: "Release notes",
-    content: data[0]?.info || "",
+    markdown: data[0]?.info || "",
     border: "line",
     scrollable: true,
     alwaysScroll: true,
@@ -53,6 +53,7 @@ export function client(data: { heading: string; info: string }[]) {
   });
   infoBox.key(["j", "down"], () => {
     infoBox.scroll(1);
+    screen.render();
   });
   infoBox.key(["k", "up"], () => {
     infoBox.scroll(-1);
@@ -65,7 +66,8 @@ export function client(data: { heading: string; info: string }[]) {
 
   function updateInfoBox() {
     const idx = list.selected;
-    infoBox.setContent(data[idx]?.info || "");
+    // @ts-expect-error this actually really works, but type definitions are not correct
+    infoBox.setMarkdown(data[idx]?.info || "");
     screen.render();
   }
 }
