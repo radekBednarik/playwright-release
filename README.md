@@ -1,12 +1,12 @@
 # playwright-release
 
-A CLI tool that fetches, parses, and displays the latest Playwright release notes from the official repository.
+A CLI tool that fetches, parses, and displays Playwright release notes from the official repository.
 
 ## Features
 
-- Fetches the latest Playwright release notes in Markdown format.
-- Parses Markdown to extract release sections and information.
-- Outputs structured release data for further processing or display.
+- Fetches Playwright release notes in Markdown format.
+- Parses Markdown string to extract release sections and information.
+- Outputs structured release data via terminal GUI.
 
 ## Usage
 
@@ -15,6 +15,7 @@ A CLI tool that fetches, parses, and displays the latest Playwright release note
 1. build the application:
 
    ```sh
+   pnpm install
    pnpm build
    ```
 
