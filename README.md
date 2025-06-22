@@ -10,6 +10,32 @@ A CLI tool that fetches, parses, and displays the latest Playwright release note
 
 ## Usage
 
+### Using shell alias
+
+1. build the application:
+
+   ```sh
+   pnpm build
+   ```
+
+2. open your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`) and add the following alias:
+
+   ```sh
+   alias pr="node ~/path/to/playwright-release/dist/index.js"
+   ```
+
+3. reload your shell configuration:
+
+   ```sh
+   source ~/.bashrc
+   ```
+
+4. then use the alias:
+
+   ```sh
+   pr
+   ```
+
 ### Development
 
 ```sh
