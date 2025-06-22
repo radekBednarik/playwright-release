@@ -4,15 +4,10 @@ import blessed from "blessed";
 export function client(data: { heading: string; info: string }[]) {
   const screen = blessed.screen();
   const grid = new blessedContrib.grid({ rows: 1, cols: 2, screen });
-  const list = blessed.list({
-    parent: grid.set(0, 0, 1, 1, blessed.list, {
-      label: "Releases",
-      keys: true,
-      mouse: true,
-      border: "line",
-    }),
+  const list = grid.set(0, 0, 1, 1, blessed.list, {
     style: {
       selected: { bg: "blue", fg: "white", bold: true },
+      focus: { border: { fg: "blue" } },
     },
     selectable: true,
     selected: 0,
@@ -49,7 +44,7 @@ export function client(data: { heading: string; info: string }[]) {
     alwaysScroll: true,
     keys: true,
     mouse: true,
-    style: { focus: { border: { fg: "yellow" } } },
+    style: { focus: { border: { fg: "red" } } },
     scrollbar: { ch: " ", track: { bg: "grey" }, style: { bg: "blue" } },
   });
 
@@ -69,7 +64,6 @@ export function client(data: { heading: string; info: string }[]) {
   screen.render();
 
   function updateInfoBox() {
-    // @ts-expect-error this works, looks like type issue
     const idx = list.selected;
     infoBox.setContent(data[idx]?.info || "");
     screen.render();
