@@ -5,6 +5,7 @@ export function client(data: { heading: string; info: string }[]) {
   const screen = blessed.screen();
   const grid = new blessedContrib.grid({ rows: 1, cols: 2, screen });
   const list = grid.set(0, 0, 1, 1, blessed.list, {
+    label: "Versions",
     style: {
       selected: { bg: "blue", fg: "white", bold: true },
       focus: { border: { fg: "blue" } },
