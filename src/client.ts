@@ -13,8 +13,6 @@ export function client(data: { heading: string; info: string }[]) {
     }),
     style: {
       selected: { bg: "blue", fg: "white", bold: true },
-      border: { fg: "yellow" },
-      focus: { border: { fg: "yellow" } },
     },
     selectable: true,
     selected: 0,
