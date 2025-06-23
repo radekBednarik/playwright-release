@@ -1,9 +1,6 @@
 import blessed from "blessed";
 
-export function createList(
-  grid: any,
-  data: { heading: string; info: string }[],
-) {
+export function createList(grid: any, data: ReleaseData[]) {
   const list = grid.set(0, 0, 1, 1, blessed.list, {
     label: "Versions",
     style: {

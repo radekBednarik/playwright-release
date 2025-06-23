@@ -3,11 +3,9 @@ import { createScreen } from "./screen.js";
 import { createList } from "./list.js";
 import { infoBox } from "./infobox.js";
 
-export function client(data: { heading: string; info: string }[]) {
+export function client(data: ReleaseData[]) {
   const screen = createScreen();
-
   const grid = new blessedContrib.grid({ rows: 1, cols: 2, screen });
-
   const iBox = infoBox(grid, data);
 
   iBox.key(["h", "left"], () => {
