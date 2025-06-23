@@ -50,6 +50,25 @@ pnpm dev
 pnpm build
 ```
 
+## Keyboard shortcuts
+
+### List
+
+- `down | j` - move down to the next item
+- `up | k` - move up to the previous item
+- `right | l | Enter` - switch to infobox
+
+### Infobox
+
+- `left | h` - switch back to list
+- `down | j` - scroll down in the infobox
+- `up | k` - scroll up in the infobox
+
+### screen
+
+- `Ctrl + c | q | Q` - exit the application
+- `r | R` - rerender the screen
+
 ## Scripts
 
 - `dev`: Run the app in development mode using tsx.

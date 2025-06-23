@@ -26,10 +26,7 @@ export function client(data: { heading: string; info: string }[]) {
   list.key(["up", "k"], () => {
     list.up(1);
   });
-  list.key(["l", "right"], () => {
-    infoBox.focus();
-  });
-  list.key(["enter"], () => {
+  list.key(["l", "right", "enter"], () => {
     infoBox.focus();
   });
 
@@ -59,8 +56,7 @@ export function client(data: { heading: string; info: string }[]) {
     infoBox.scroll(-1);
   });
 
-  screen.key(["C-c"], () => process.exit(0));
-  screen.key(["q", "Q"], () => process.exit(0));
+  screen.key(["C-c", "q", "Q"], () => process.exit(0));
   screen.key(["r", "R"], () => screen.render());
 
   screen.render();
