@@ -40,8 +40,6 @@ export function client(data: ReleaseData[]) {
 
     iBox.setMarkdown(results[0]?.info || "");
 
-    searchBox.clearValue();
-
     screen.render();
   });
 
