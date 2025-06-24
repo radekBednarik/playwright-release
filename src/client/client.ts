@@ -8,12 +8,12 @@ export function client(data: ReleaseData[]) {
   const screen = createScreen();
   const grid = new blessedContrib.grid({ rows: 12, cols: 2, screen });
   const iBox = infoBox(grid, data);
+  const list = createList(grid, data);
+  const searchBox = createSearch(grid);
 
   iBox.key(["h", "left"], () => {
     list.focus();
   });
-
-  const list = createList(grid, data);
 
   list.key(["l", "right", "enter"], () => {
     iBox.focus();
@@ -24,8 +24,6 @@ export function client(data: ReleaseData[]) {
     screen.render();
   });
   list.focus();
-
-  const searchBox = createSearch(grid);
 
   // @ts-expect-error it is what it is
   searchBox.on("submit", (value) => {
