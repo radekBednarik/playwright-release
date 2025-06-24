@@ -64,10 +64,19 @@ pnpm build
 - `down | j` - scroll down in the infobox
 - `up | k` - scroll up in the infobox
 
-### screen
+### Screen
 
 - `Ctrl + c | q | Q` - exit the application
 - `r | R` - rerender the screen
+
+### Search
+
+Search input allows for very simple searching by checking whether provided string
+is present in the release notes.
+
+- `Alt + s | s | S` - focus the search input
+- `Enter` - submits search query string and updates UI with results.
+  Switches focus to list.
 
 ## Scripts
 
