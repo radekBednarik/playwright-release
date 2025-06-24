@@ -18,13 +18,11 @@ export function client(data: ReleaseData[]) {
   list.key(["l", "right", "enter"], () => {
     iBox.focus();
   });
-
   list.on("select item", () => {
     const idx = list.selected;
     iBox.setMarkdown(data[idx]?.info || "");
     screen.render();
   });
-
   list.focus();
 
   const searchBox = createSearch(grid);
@@ -33,12 +31,18 @@ export function client(data: ReleaseData[]) {
   searchBox.on("submit", (value) => {
     const results = search(value, data);
 
-    searchBox.clearValue();
+    list.on("select item", () => {
+      const idx = list.selected;
+      iBox.setMarkdown(results[idx]?.info || "");
+      screen.render();
+    });
 
     list.focus();
     list.setItems(results.map((item) => item.heading));
 
     iBox.setMarkdown(results[0]?.info || "");
+
+    searchBox.clearValue();
 
     screen.render();
   });

@@ -18,6 +18,10 @@ export function createSearch(grid: any) {
 }
 
 export function search(substr: string, data: ReleaseData[]) {
+  if (substr.length === 0) {
+    return data;
+  }
+
   return data.filter((item) => {
     if (item.info.toLowerCase().includes(substr.toLowerCase())) {
       return true;
