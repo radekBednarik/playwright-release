@@ -33,12 +33,12 @@ export function client(data: ReleaseData[]) {
   searchBox.on("submit", (value) => {
     const results = search(value, data);
 
-    list.setItems(results.map((item) => item.heading));
-    list.focus();
-
     searchBox.clearValue();
 
-    iBox.setMarkdown(data[0]?.info || "");
+    list.focus();
+    list.setItems(results.map((item) => item.heading));
+
+    iBox.setMarkdown(results[0]?.info || "");
 
     screen.render();
   });
