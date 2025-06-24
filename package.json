@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx ./src/index.ts",
+    "dev": "rm -rf ./dist && tsx ./src/index.ts",
     "build": "rm -rf ./dist && tsc",
     "type-check": "tsc --noEmit --pretty",
     "lint": "eslint . --ext .ts,.tsx",

@@ -22,11 +22,17 @@ export function search(substr: string, data: ReleaseData[]) {
     return data;
   }
 
-  return data.filter((item) => {
-    if (item.info.toLowerCase().includes(substr.toLowerCase())) {
-      return true;
-    }
+  const substrLower = substr.toLowerCase();
 
-    return false;
-  });
+  return data.reduce((acc, item) => {
+    if (item.info.toLowerCase().includes(substrLower)) {
+      acc.push({
+        heading: item.heading,
+        // I would love to use better highlighting here
+        // but blessed-contrib markdown doesn't support it
+        info: item.info.replaceAll(substrLower, `\`${substr}\``),
+      });
+    }
+    return acc;
+  }, [] as ReleaseData[]);
 }
