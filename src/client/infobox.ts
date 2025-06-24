@@ -1,7 +1,7 @@
 import blessedContrib from "blessed-contrib";
 
 export function infoBox(grid: any, data: ReleaseData[]) {
-  const infoBox = grid.set(0, 1, 1, 1, blessedContrib.markdown, {
+  const infoBox = grid.set(0, 1, 12, 1, blessedContrib.markdown, {
     label: "Release notes",
     markdown: data[0]?.info || "",
     border: "line",
